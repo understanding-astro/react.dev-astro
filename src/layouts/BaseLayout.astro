@@ -79,7 +79,15 @@ const {
     />
   </head>
 
-  <body>
-    <slot />
+  <body
+    class="font-text font-medium antialiased text-lg bg-wash dark:bg-wash-dark text-secondary dark:text-secondary-dark leading-base"
+  >
+    <main class="isolate">
+      <article
+        class="break-words font-normal text-primary dark:text-primary-dark"
+      >
+        <slot />
+      </article>
+    </main>
   </body>
 </html>
