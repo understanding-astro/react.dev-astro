@@ -37,6 +37,9 @@ module.exports = {
         large: "38px",
         xl: "1.15",
       },
+      aria: {
+        page: "current=page",
+      },
       colors,
     },
   },
