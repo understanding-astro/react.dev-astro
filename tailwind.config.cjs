@@ -41,6 +41,11 @@ module.exports = {
         page: "current=page",
       },
       colors,
+      boxShadow: {
+        ...defaultTheme.boxShadow,
+        "secondary-button-stroke": "inset 0 0 0 1px #D9DBE3",
+        "secondary-button-stroke-dark": "inset 0 0 0 1px #404756",
+      },
     },
   },
   plugins: [],

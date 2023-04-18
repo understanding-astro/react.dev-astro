@@ -1,5 +1,38 @@
 ---
+import Logo from "../components/Logo.astro";
+import ButtonLink from "../components/ButtonLink.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="React" page="index" />
+<BaseLayout title="React" page="index">
+  <div class="mx-5 mt-12 lg:mt-24 mb-20 lg:mb-32 flex flex-col items-center">
+    <Logo
+      class="mt-4 mb-3 text-link dark:text-link-dark w-24 lg:w-28 text-sm mr-0"
+    />
+    <h1
+      class="text-5xl font-display lg:text-6xl font-semibold leading-snug text-primary dark:text-primary-dark"
+    >
+      React
+    </h1>
+    <p
+      class="text-4xl font-display max-w-lg md:max-w-full py-1 text-center text-secondary dark:text-primary-dark leading-snug"
+    >
+      The library for web and native user interfaces
+    </p>
+
+    <div class="mt-5 flex gap-2 w-full sm:w-auto flex-col sm:flex-row">
+      <ButtonLink href="/learn" type="primary" size="lg" label="Learn React">
+        Learn React
+      </ButtonLink>
+
+      <ButtonLink
+        size="lg"
+        type="secondary"
+        href="/reference/react"
+        label="API Reference"
+      >
+        API Reference
+      </ButtonLink>
+    </div>
+  </div>
+</BaseLayout>
