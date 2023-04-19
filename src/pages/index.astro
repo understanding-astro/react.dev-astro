@@ -2,6 +2,12 @@
 import Logo from "../components/Logo.astro";
 import ButtonLink from "../components/ButtonLink.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
+
+import Section from "./_components/home/Section.astro";
+import Center from "./_components/home/Center.astro";
+import Header from "./_components/home/Header.astro";
+import Paragraph from "./_components/home/Paragraph.astro";
+import Code from "./_components/home/Code.astro";
 ---
 
 <BaseLayout title="React" page="index">
@@ -35,4 +41,71 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </ButtonLink>
     </div>
   </div>
+
+  <Section gradientDirection="left">
+    <Center>
+      <Header>Create user interfaces from components</Header>
+
+      <!-- Note component composition with Code nested deep -->
+      <Paragraph>
+        React lets you build user interfaces out of individual pieces called
+        components. Create your own React components like <Code>
+          Thumbnail
+        </Code>, <Code>LikeButton</Code>, and <Code>Video</Code>. Then combine
+        them into entire screens, pages, and apps.
+      </Paragraph>
+    </Center>
+
+    <Center>
+      <Paragraph>
+        Whether you work on your own or with thousands of other developers,
+        using React feels the same. It is designed to let you seamlessly combine
+        components written by independent people, teams, and organizations.
+      </Paragraph>
+    </Center>
+  </Section>
+
+  <Section gradientDirection="left">
+    <Center>
+      <Header>Write components with code and markup</Header>
+
+      <!-- Note component composition with Code nested deep -->
+      <Paragraph>
+        React components are JavaScript functions. Want to show some content
+        conditionally? Use an <Code>if</Code> statement. Displaying a list? Try array
+        <Code>map()</Code>. Learning React is learning programming.
+      </Paragraph>
+    </Center>
+
+    <Center>
+      <Paragraph>
+        This markup syntax is called JSX. It is a JavaScript syntax extension
+        popularized by React. Putting JSX markup close to related rendering
+        logic makes React components easy to create, maintain, and delete.
+      </Paragraph>
+    </Center>
+  </Section>
+
+  <Section gradientDirection="left">
+    <Center>
+      <Header>Join a community of millions</Header>
+
+      <Paragraph>
+        You're not alone. Two million developers from all over the world visit
+        the React docs every month. React is something that people and teams can
+        agree on.
+      </Paragraph>
+    </Center>
+
+    <Center>
+      <Paragraph>
+        This is why React is more than a library, an architecture, or even an
+        ecosystem. React is a community. It's a place where you can ask for
+        help, find opportunities, and meet new friends. You will meet both
+        developers and designers, beginners and experts, researchers and
+        artists, teachers and students. Our backgrounds may be very different,
+        but React lets us all create user interfaces together.
+      </Paragraph>
+    </Center>
+  </Section>
 </BaseLayout>

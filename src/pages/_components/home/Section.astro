@@ -1,0 +1,28 @@
+---
+interface Props {
+  gradientDirection?: "left" | "right";
+}
+
+const { gradientDirection = null } = Astro.props;
+---
+
+<!-- Note arbitrary property not supported by tailwind
+@ see https://developer.mozilla.org/en-US/docs/Web/CSS/contain
+Helps the gradient take full space (top and bottom margin of child included)
+-->
+<div
+  class:list={[
+    "w-full [contain:content]",
+    {
+      "max-w-7xl": gradientDirection === null,
+      "bg-gradient-left dark:bg-gradient-left-dark border-t border-primary/10 dark:border-primary-dark/10":
+        gradientDirection === "left",
+      "bg-gradient-right dark:bg-gradient-right-dark border-t border-primary/5 dark:border-primary-dark/5":
+        gradientDirection === "right",
+    },
+  ]}
+>
+  <div class="flex flex-col grow my-20 lg:my-32 items-center">
+    <slot />
+  </div>
+</div>
