@@ -42,6 +42,8 @@ module.exports = {
       },
       colors,
       boxShadow: {
+        "inner-border": "inset 0 0 0 1px rgba(0, 0, 0, 0.08)",
+        "inner-border-dark": "inset 0 0 0 1px rgba(255, 255, 255, 0.08)",
         "secondary-button-stroke": "inset 0 0 0 1px #D9DBE3",
         "secondary-button-stroke-dark": "inset 0 0 0 1px #404756",
         nav: "0 16px 32px -16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0,0,0,.10)",
@@ -57,6 +59,8 @@ module.exports = {
           "conic-gradient(from 90deg at -10% 100%, #BCC1CD 0deg, #BCC1CD 90deg, #FFFFFF 360deg)",
         "gradient-right":
           "conic-gradient(from -90deg at 110% 100%, #FFFFFF 0deg, #EBECF0 90deg, #EBECF0 360deg)",
+        "meta-gradient": "url('/images/meta-gradient.png')",
+        "meta-gradient-dark": "url('/images/meta-gradient-dark.png')",
       },
     },
   },
