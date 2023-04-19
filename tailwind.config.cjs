@@ -44,6 +44,9 @@ module.exports = {
       boxShadow: {
         "secondary-button-stroke": "inset 0 0 0 1px #D9DBE3",
         "secondary-button-stroke-dark": "inset 0 0 0 1px #404756",
+        nav: "0 16px 32px -16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0,0,0,.10)",
+        "nav-dark":
+          "0 16px 32px -16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255,255,255,.05)",
       },
       backgroundImage: {
         "gradient-left-dark":
