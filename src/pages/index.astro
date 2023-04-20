@@ -10,6 +10,8 @@ import Paragraph from "./_components/home/Paragraph.astro";
 import Code from "./_components/home/Code.astro";
 import FullBleed from "./_components/home/FullBleed.astro";
 import ExampleLayout from "./_components/home/ExampleLayout.astro";
+import ExampleResultPanel from "./_components/home/ExampleResultPanel.astro";
+import { Video } from "./_components/home/Video";
 ---
 
 <BaseLayout title="React" page="index">
@@ -59,7 +61,24 @@ import ExampleLayout from "./_components/home/ExampleLayout.astro";
     </Center>
 
     <FullBleed>
-      <ExampleLayout />
+      <ExampleLayout>
+        <div slot="left-content">
+          <h1>Left!!</h1>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
+            tempore nam perferendis quod, quisquam voluptatum explicabo
+            voluptates ab provident dicta temporibus, ipsam animi odit? Tempore
+            reiciendis quaerat obcaecati commodi officiis!
+          </p>
+        </div>
+
+        <ExampleResultPanel slot="right-content">
+          <Video
+            client:visible
+            video={{ title: "My video", description: "Video description" }}
+          />
+        </ExampleResultPanel>
+      </ExampleLayout>
     </FullBleed>
 
     <Center>
@@ -84,7 +103,40 @@ import ExampleLayout from "./_components/home/ExampleLayout.astro";
     </Center>
 
     <FullBleed>
-      <ExampleLayout />
+      <ExampleLayout>
+        <div slot="left-content">
+          <h1>Left!!</h1>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
+            tempore nam perferendis quod, quisquam voluptatum explicabo
+            voluptates ab provident dicta temporibus, ipsam animi odit? Tempore
+            reiciendis quaerat obcaecati commodi officiis!
+          </p>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
+            tempore nam perferendis quod, quisquam voluptatum explicabo
+            voluptates ab provident dicta temporibus, ipsam animi odit? Tempore
+            reiciendis quaerat obcaecati commodi officiis!
+          </p>
+        </div>
+
+        <ExampleResultPanel slot="right-content">
+          <div class="flex flex-col gap-4 w-full">
+            <h2 class="font-bold text-xl text-primary mb-4 leading-snug">
+              2 videos
+            </h2>
+
+            <Video
+              client:visible
+              video={{ title: "My video", description: "Video description" }}
+            />
+            <Video
+              client:visible
+              video={{ title: "My video", description: "Video description" }}
+            />
+          </div>
+        </ExampleResultPanel>
+      </ExampleLayout>
     </FullBleed>
 
     <Center>
