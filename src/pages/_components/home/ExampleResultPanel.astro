@@ -1,0 +1,14 @@
+---
+interface Props {
+  height: string;
+}
+
+const { height } = Astro.props;
+---
+
+<div
+  class="max-w-3xl rounded-2xl mx-auto text-secondary leading-normal bg-white flex items-center p-5 w-full"
+  style={`height: ${height}`}
+>
+  <slot />
+</div>

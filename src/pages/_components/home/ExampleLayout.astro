@@ -1,3 +1,8 @@
+---
+import { Video } from "./Video";
+import ExampleResultPanel from "./ExampleResultPanel.astro";
+---
+
 <div class="lg:pl-10 lg:pr-5 w-full">
   <div
     class="mt-12 mb-2 lg:my-16 lg:rounded-2xl lg:bg-card lg:dark:bg-card-dark"
@@ -31,17 +36,14 @@
       </div>
 
       <div
-        class="mt-0 lg:-my-20 flex-1 p-2.5 xs:p-5 lg:p-10 flex justify-center"
+        class="mt-0 lg:-my-20 flex-1 p-2.5 xs:p-5 lg:p-10 flex justify-center w-full"
       >
-        <div>
-          <h1>Right!!</h1>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
-            tempore nam perferendis quod, quisquam voluptatum explicabo
-            voluptates ab provident dicta temporibus, ipsam animi odit? Tempore
-            reiciendis quaerat obcaecati commodi officiis!
-          </p>
-        </div>
+        <ExampleResultPanel height="113px">
+          <Video
+            client:visible
+            video={{ title: "My video", description: "Video description" }}
+          />
+        </ExampleResultPanel>
       </div>
     </div>
   </div>
