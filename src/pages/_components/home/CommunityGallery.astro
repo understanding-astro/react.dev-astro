@@ -36,8 +36,15 @@ const communityImages = [
 ---
 
 <!-- container -->
-<div class="relative w-auto overflow-x-hidden overflow-y-visible">
-  <div class="flex animate-marquee py-12 lg:animate-large-marquee lg:py-20">
+<div
+  class="relative w-auto overflow-x-hidden overflow-y-visible"
+  id="communityGalleryContainer"
+>
+  <div
+    class="flex animate-marquee py-12 lg:animate-large-marquee lg:py-20"
+    style={{ animationPlayState: "paused" }}
+    id="communityImagesContainer"
+  >
     {
       communityImages.map(({ src, alt }, index) => (
         <div class="group relative min-w-[50%] rounded-2xl px-5 lg:min-w-[25%] ">
@@ -66,6 +73,8 @@ const communityImages = [
   <!-- Second gallery layered right on top and shifted to the end via the CSS animation rule -->
   <div
     class="absolute top-0 flex animate-marquee-tail py-12 lg:animate-large-marquee-tail lg:py-20"
+    style={{ animationPlayState: "paused" }}
+    id="communityImagesTailContainer"
   >
     {
       communityImages.map(({ src, alt }, index) => (
@@ -84,6 +93,7 @@ const communityImages = [
             <img
               src={src}
               alt={alt}
+              loading="lazy"
               class="aspect-[4/3] h-full w-full rounded-2xl bg-gray-10 object-cover dark:bg-gray-80"
             />
           </div>
@@ -92,3 +102,36 @@ const communityImages = [
     }
   </div>
 </div>
+
+<script>
+  const communityImagesTailContainer = document.getElementById(
+    "communityImagesTailContainer"
+  );
+
+  const communityImagesContainer = document.getElementById(
+    "communityImagesContainer"
+  );
+
+  const communityGalleryContainer = document.getElementById(
+    "communityGalleryContainer"
+  );
+
+  if (
+    communityGalleryContainer &&
+    communityImagesContainer &&
+    communityImagesTailContainer
+  ) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          communityImagesContainer.style.animationPlayState = "running";
+          communityImagesTailContainer.style.animationPlayState = "running";
+        }
+      });
+    });
+
+    observer.observe(communityGalleryContainer);
+  } else {
+    console.error("community image elements not found ");
+  }
+</script>
