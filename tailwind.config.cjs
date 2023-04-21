@@ -62,6 +62,30 @@ module.exports = {
         "meta-gradient": "url('/images/meta-gradient.png')",
         "meta-gradient-dark": "url('/images/meta-gradient-dark.png')",
       },
+      animation: {
+        marquee: "marquee 40s linear infinite",
+        "marquee-tail": "marquee-tail 40s linear infinite",
+        "large-marquee": "large-marquee 80s linear infinite",
+        "large-marquee-tail": "large-marquee-tail 80s linear infinite",
+      },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-400%)" },
+        },
+        "marquee-tail": {
+          "0%": { transform: "translateX(400%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+        "large-marquee": {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-200%)" },
+        },
+        "large-marquee-tail": {
+          "0%": { transform: "translateX(200%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
+      },
     },
   },
   plugins: [],
