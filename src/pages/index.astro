@@ -1,4 +1,6 @@
 ---
+import { Code as Shiki } from "astro/components";
+
 import Logo from "../components/Logo.astro";
 import ButtonLink from "../components/ButtonLink.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -16,22 +18,22 @@ import CommunityGallery from "./_components/home/CommunityGallery.astro";
 ---
 
 <BaseLayout title="React" page="index">
-  <div class="mx-5 mt-12 lg:mt-24 mb-20 lg:mb-32 flex flex-col items-center">
+  <div class="mx-5 mb-20 mt-12 flex flex-col items-center lg:mb-32 lg:mt-24">
     <Logo
-      class="mt-4 mb-3 text-link dark:text-link-dark w-24 lg:w-28 text-sm mr-0"
+      class="mb-3 mr-0 mt-4 w-24 text-sm text-link dark:text-link-dark lg:w-28"
     />
     <h1
-      class="text-5xl font-display lg:text-6xl font-semibold leading-snug text-primary dark:text-primary-dark"
+      class="font-display text-5xl font-semibold leading-snug text-primary dark:text-primary-dark lg:text-6xl"
     >
       React
     </h1>
     <p
-      class="text-4xl font-display max-w-lg md:max-w-full py-1 text-center text-secondary dark:text-primary-dark leading-snug"
+      class="max-w-lg py-1 text-center font-display text-4xl leading-snug text-secondary dark:text-primary-dark md:max-w-full"
     >
       The library for web and native user interfaces
     </p>
 
-    <div class="mt-5 flex gap-2 w-full sm:w-auto flex-col sm:flex-row">
+    <div class="mt-5 flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
       <ButtonLink href="/learn" type="primary" size="lg" label="Learn React">
         Learn React
       </ButtonLink>
@@ -63,14 +65,25 @@ import CommunityGallery from "./_components/home/CommunityGallery.astro";
 
     <FullBleed>
       <ExampleLayout>
-        <div slot="left-content">
-          <h1>Left!!</h1>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
-            tempore nam perferendis quod, quisquam voluptatum explicabo
-            voluptates ab provident dicta temporibus, ipsam animi odit? Tempore
-            reiciendis quaerat obcaecati commodi officiis!
-          </p>
+        <div
+          slot="left-content"
+          class="[&_pre]:!bg-transparent [&_pre]:!text-sm [&_pre]:!leading-6"
+        >
+          <Shiki
+            code={`function Video({ video }) {
+  return (
+    <div>
+      <Thumbnail video={video} />
+      <a href={video.url}>
+        <h3>{video.title}</h3>
+        <p>{video.description}</p>
+      </a>
+      <LikeButton video={video} />
+    </div>
+  );
+}`}
+            lang="jsx"
+          />
         </div>
 
         <ExampleResultPanel slot="right-content">
@@ -105,25 +118,36 @@ import CommunityGallery from "./_components/home/CommunityGallery.astro";
 
     <FullBleed>
       <ExampleLayout>
-        <div slot="left-content">
-          <h1>Left!!</h1>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
-            tempore nam perferendis quod, quisquam voluptatum explicabo
-            voluptates ab provident dicta temporibus, ipsam animi odit? Tempore
-            reiciendis quaerat obcaecati commodi officiis!
-          </p>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
-            tempore nam perferendis quod, quisquam voluptatum explicabo
-            voluptates ab provident dicta temporibus, ipsam animi odit? Tempore
-            reiciendis quaerat obcaecati commodi officiis!
-          </p>
+        <div
+          slot="left-content"
+          class="[&_pre]:!bg-transparent [&_pre]:!text-sm [&_pre]:!leading-6"
+        >
+          <Shiki
+            code={`function VideoList({ videos, emptyHeading }) {
+  const count = videos.length;
+  let heading = emptyHeading;
+  if (count > 0) {
+    const noun = count > 1 ? 'Videos' : 'Video';
+    heading = count + ' ' + noun;
+  }
+  return (
+    <section>
+      <h2>{heading}</h2>
+      {videos.map(video =>
+        <Video key={video.id} video={video} />
+      )}
+    </section>
+  );
+}`}
+            lang="jsx"
+            theme="dracula"
+          />
+          <!-- Example of passing most themes from https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes shown above. "material" themes don't seem to work. Perhaps open an issue -->
         </div>
 
         <ExampleResultPanel slot="right-content">
-          <div class="flex flex-col gap-4 w-full">
-            <h2 class="font-bold text-xl text-primary mb-4 leading-snug">
+          <div class="flex w-full flex-col gap-4">
+            <h2 class="mb-4 text-xl font-bold leading-snug text-primary">
               2 videos
             </h2>
 
@@ -173,9 +197,9 @@ import CommunityGallery from "./_components/home/CommunityGallery.astro";
 
     <CommunityGallery />
 
-    <div class="mt-20 px-5 lg:px-0 mb-6 max-w-4xl text-center text-opacity-80">
+    <div class="mb-6 mt-20 max-w-4xl px-5 text-center text-opacity-80 lg:px-0">
       <Logo
-        class="text-link dark:text-link-dark w-24 lg:w-28 mb-10 lg:mb-8 mt-12 h-auto mx-auto"
+        class="mx-auto mb-10 mt-12 h-auto w-24 text-link dark:text-link-dark lg:mb-8 lg:w-28"
       />
       <Header>
         Welcome to the <br />
