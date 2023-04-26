@@ -1,0 +1,24 @@
+---
+import type { Lang } from "shiki";
+import shiki, { getHighlighter } from "shiki";
+
+interface Props {
+  lang: Lang;
+  code: string;
+}
+
+const { code = "", lang = "jsx" } = Astro.props;
+
+const theme = await shiki.loadTheme("../../snippet-theme.json");
+
+const highlighter = await getHighlighter({
+  theme,
+  langs: [lang],
+});
+---
+
+<Fragment
+  set:html={highlighter.codeToHtml(code, {
+    lang,
+  })}
+/>

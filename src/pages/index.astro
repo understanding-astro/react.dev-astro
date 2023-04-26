@@ -1,6 +1,5 @@
 ---
-import { Code as Shiki } from "astro/components";
-
+import Shiki from "../components/Shiki.astro";
 import Logo from "../components/Logo.astro";
 import ButtonLink from "../components/ButtonLink.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -83,7 +82,6 @@ import CommunityGallery from "./_components/home/CommunityGallery.astro";
   );
 }`}
             lang="jsx"
-            theme="css-variables"
           />
         </div>
 
@@ -141,7 +139,6 @@ import CommunityGallery from "./_components/home/CommunityGallery.astro";
   );
 }`}
             lang="jsx"
-            theme="css-variables"
           />
           <!-- Example of passing most themes from https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes shown above. "material" themes don't seem to work. Perhaps open an issue -->
         </div>
