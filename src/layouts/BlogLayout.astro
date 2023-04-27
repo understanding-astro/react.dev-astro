@@ -1,17 +1,15 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import type { MarkdownLayoutProps } from "astro";
 
-type Props = MarkdownLayoutProps<{
-  // TODO: can this come from content collection type?
+type Props = {
   title: string;
-}>;
+};
 
-const { title } = Astro.props.frontmatter;
+const { title } = Astro.props;
 ---
 
 <BaseLayout title={title} page="blog">
-  <div class="mx-auto max-w-5xl px-5 pt-12 lg:px-4">
+  <div class="mx-auto min-h-[70vh] max-w-5xl px-5 pt-12 lg:px-4">
     <h1
       class="mdx-heading -mx-.5 mt-0 break-words font-display text-5xl font-bold leading-tight text-primary dark:text-primary-dark"
     >

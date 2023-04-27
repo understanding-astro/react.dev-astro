@@ -1,0 +1,35 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+// Handle dynamic path(s)
+export async function getStaticPaths() {
+  const allBlogPosts = await getCollection("blog");
+  const paths = allBlogPosts.map(({ slug, data }) => ({
+    params: {
+      path: `${data.year}/${data.month}/${data.day}/${slug}`,
+    },
+  }));
+
+  return paths;
+}
+
+// Handle individual page rendering
+const { path = "" } = Astro.params;
+const slug = path.split("/").at(-1);
+
+// safe fallback
+if (!slug) {
+  return Astro.redirect("/404");
+}
+
+// get blog entry
+const entry = await getEntryBySlug("blog", slug);
+
+// fallback
+if (!entry) {
+  return Astro.redirect("/404");
+}
+---
+
+<BlogLayout title={entry.data.title} />
