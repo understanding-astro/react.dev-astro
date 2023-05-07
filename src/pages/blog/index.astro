@@ -1,0 +1,77 @@
+---
+import { getCollection } from "astro:content";
+
+import H3 from "../../components/H3.astro";
+import Link from "../../components/Link.astro";
+import Intro from "../../components/Intro.astro";
+import Divider from "../../components/Divider.astro";
+import BlogCard from "../../components/BlogCard.astro";
+
+import BlogLayout from "../../layouts/BlogLayout.astro";
+
+import { getMonthName } from "../../utils/getMonthName";
+
+const allBlogPosts = await getCollection("blog");
+---
+
+<BlogLayout title="React Blog - React" header="React Blog">
+  <Intro>
+    This blog is the official source for the updates from the React team.
+    Anything important, including release notes or deprecation notices, will be
+    posted here first. You can also follow the <Link
+      href="https://twitter.com/reactjs"
+    >
+      @reactjs
+    </Link>
+    account on Twitter, but you won't miss anything essential if you only read this
+    blog.
+  </Intro>
+
+  <div class="mt-12 flex flex-col gap-5 px-5 sm:-mx-5 lg:px-4">
+    {
+      allBlogPosts.map(async ({ data, slug }) => {
+        const url = `/blog/${data.year}/${data.month}/${data.day}/${slug}`;
+        console.log({ url });
+
+        return (
+          <BlogCard
+            url={url}
+            date={`${getMonthName(+data.month)} ${data.day}, ${data.year}`}
+            title={data.title}
+          >
+            {data.intro}
+          </BlogCard>
+        );
+      })
+    }
+  </div>
+
+  <Divider />
+
+  <H3>All release notes</H3>
+
+  <p>
+    Not every React release deserves its own blog post, but you can find a
+    detailed changelog for every release in the <Link
+      href="https://github.com/facebook/react/blob/main/CHANGELOG.md"
+    >
+      CHANGELOG.md
+    </Link> file in the React repository, as well as on the <Link
+      href="https://github.com/facebook/react/releases"
+    >
+      Releases
+    </Link> page.
+  </p>
+
+  <Divider />
+
+  <H3>Older posts</H3>
+
+  <p>
+    See the <Link href="https://legacy.reactjs.org/blog/all.html/">
+      older posts.
+    </Link>
+  </p>
+
+  <Divider />
+</BlogLayout>

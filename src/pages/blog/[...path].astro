@@ -18,6 +18,8 @@ export async function getStaticPaths() {
 const { path = "" } = Astro.params;
 const slug = path.split("/").at(-1);
 
+console.log({ slug });
+
 // safe fallback
 if (!slug) {
   return Astro.redirect("/404");

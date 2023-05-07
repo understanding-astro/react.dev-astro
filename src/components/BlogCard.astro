@@ -1,0 +1,36 @@
+---
+type Props = {
+  url: string;
+  title: string;
+  date: string;
+};
+
+const { url, date, title } = Astro.props;
+---
+
+<a
+  href={url}
+  class="block w-full rounded-2xl outline-none focus:outline-none focus:outline-offset-2 focus-visible:outline focus-visible:outline-link focus-visible:dark:focus:outline-link-dark"
+>
+  <div
+    class="cursor-pointer rounded-2xl p-5 text-xl leading-relaxed text-primary shadow-secondary-button-stroke hover:bg-gray-40/5 active:bg-gray-40/10 dark:text-primary-dark dark:shadow-secondary-button-stroke-dark hover:dark:bg-gray-60/5 active:dark:bg-gray-60/10 sm:p-5"
+  >
+    <h2
+      class="mb-4 flex-1 text-2xl font-semibold leading-snug hover:underline lg:text-3xl"
+    >
+      {title}
+    </h2>
+
+    <div class="mb-4 text-base text-tertiary dark:text-tertiary-dark">
+      {date}
+    </div>
+
+    <div class="text-base text-secondary dark:text-secondary-dark">
+      <slot />
+    </div>
+
+    <div class="mt-4 text-base text-link hover:underline dark:text-link-dark">
+      Read more
+    </div>
+  </div>
+</a>
