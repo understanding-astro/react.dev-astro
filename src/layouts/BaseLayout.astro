@@ -3,7 +3,7 @@ import MetaOpenSource from "../components/MetaOpenSource.astro";
 import Logo from "../components/Logo.astro";
 import NavLink from "../components/NavLink.astro";
 
-const NAV_LINK = ["learn", "blog"] as const;
+const NAV_LINK = ["blog", "learn"] as const;
 
 type Page = (typeof NAV_LINK)[number] | "index";
 
