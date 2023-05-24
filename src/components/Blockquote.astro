@@ -1,0 +1,16 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"blockquote">;
+
+const { props } = Astro;
+---
+
+<blockquote
+  class="mdx-blockquote relative my-8 flex rounded-2xl bg-highlight bg-opacity-50 px-8 py-4 leading-6 shadow-inner-border dark:bg-highlight-dark dark:shadow-inner-border-dark"
+  {...props}
+>
+  <span class="relative block">
+    <slot />
+  </span>
+</blockquote>

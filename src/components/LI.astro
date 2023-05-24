@@ -1,0 +1,11 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"li">;
+
+const { props } = Astro;
+---
+
+<li class="mb-1 leading-relaxed" {...props}>
+  <slot />
+</li>

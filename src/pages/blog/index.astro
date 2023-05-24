@@ -31,7 +31,6 @@ const allBlogPosts = await getCollection("blog");
     {
       allBlogPosts.map(async ({ data, slug }) => {
         const url = `/blog/${data.year}/${data.month}/${data.day}/${slug}`;
-        console.log({ url });
 
         return (
           <BlogCard

@@ -1,0 +1,24 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"code">;
+
+const { props } = Astro;
+---
+
+<code
+  class="inline rounded-md bg-gray-30 bg-opacity-10 px-1 py-px text-code text-secondary no-underline dark:text-secondary-dark"
+  {...props}
+>
+  <slot /></code
+>
+
+{
+  /**
+   * 2. Open BUG: then this is a bug in Astro???   */
+  /**
+   * Add other blog content
+   * (1) simple composition for "Learn" route. Reuse as much as possible.
+   * 2
+   */
+}

@@ -96,7 +96,7 @@ const {
       <nav
         class="flex h-16 w-full items-center justify-between bg-wash bg-opacity-90 px-1.5 shadow-nav dark:bg-wash-dark dark:bg-opacity-95 dark:shadow-nav-dark lg:pl-4 lg:pr-5"
       >
-        <div class="flex">
+        <div>
           <a href="/" class="p-1 transition-transform active:scale-95">
             <Logo
               class="mr-0 h-10 w-10 text-sm text-link dark:text-link-dark"
@@ -151,6 +151,44 @@ const {
 </html>
 
 <style is:global>
+  .mdx-heading {
+    scroll-margin-top: calc(4rem + 20px);
+    /* Space for the anchor */
+    padding-right: 1em;
+  }
+
+  .mdx-heading:before {
+    height: 6rem;
+    margin-top: -6rem;
+    visibility: hidden;
+    content: "";
+  }
+  .mdx-heading .mdx-header-anchor {
+    /* Prevent the anchor from
+     overflowing to its own line */
+    height: 0px;
+    width: 0px;
+  }
+  .mdx-heading .mdx-header-anchor svg {
+    display: inline;
+  }
+  .mdx-heading .mdx-header-anchor svg {
+    visibility: hidden;
+  }
+  .mdx-heading:hover .mdx-header-anchor svg {
+    visibility: visible;
+  }
+  .mdx-heading .mdx-header-anchor:focus svg {
+    visibility: visible;
+  }
+
+  .mdx-blockquote > span > p:first-of-type {
+    margin-bottom: 0;
+  }
+  .mdx-blockquote > span > p:last-of-type {
+    margin-bottom: 1rem;
+  }
+
   @media (prefers-color-scheme: dark) {
     :root {
       --astro-code-color-text: #ffffff;

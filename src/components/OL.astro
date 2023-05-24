@@ -1,0 +1,11 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"ol">;
+
+const { props } = Astro;
+---
+
+<ol class="my-3 ml-6 list-decimal" {...props}>
+  <slot />
+</ol>

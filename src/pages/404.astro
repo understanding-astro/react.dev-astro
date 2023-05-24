@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Redirecting ..." page="index" />
+
+<script is:inline>
+  // lazy redirect. This is better done server-side: discussed in the next book's chapter
+  const { pathname } = window.location;
+
+  window.location.replace(`https://www.react.dev${pathname}`);
+</script>

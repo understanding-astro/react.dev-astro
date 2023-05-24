@@ -1,13 +1,17 @@
 ---
-import { getCollection, getEntryBySlug } from "astro:content";
+import { getCollection, CollectionEntry } from "astro:content";
 import BlogLayout from "../../layouts/BlogLayout.astro";
+import { mdxComponents } from "../../components/mdxComponents";
 
 // Handle dynamic path(s)
 export async function getStaticPaths() {
   const allBlogPosts = await getCollection("blog");
-  const paths = allBlogPosts.map(({ slug, data }) => ({
+  const paths = allBlogPosts.map((entry) => ({
     params: {
-      path: `${data.year}/${data.month}/${data.day}/${slug}`,
+      path: `${entry.data.year}/${entry.data.month}/${entry.data.day}/${entry.slug}`,
+    },
+    props: {
+      entry,
     },
   }));
 
@@ -15,23 +19,13 @@ export async function getStaticPaths() {
 }
 
 // Handle individual page rendering
-const { path = "" } = Astro.params;
-const slug = path.split("/").at(-1);
+const { entry } = Astro.props as {
+  entry: CollectionEntry<"blog">;
+};
 
-console.log({ slug });
-
-// safe fallback
-if (!slug) {
-  return Astro.redirect("/404");
-}
-
-// get blog entry
-const entry = await getEntryBySlug("blog", slug);
-
-// fallback
-if (!entry) {
-  return Astro.redirect("/404");
-}
+const { Content } = await entry.render();
 ---
 
-<BlogLayout title={entry.data.title} />
+<BlogLayout title={entry.data.title}>
+  <Content components={mdxComponents} />
+</BlogLayout>

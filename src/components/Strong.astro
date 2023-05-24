@@ -1,0 +1,11 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"strong">;
+
+const { props } = Astro;
+---
+
+<strong class="font-bold" {...props}>
+  <slot />
+</strong>

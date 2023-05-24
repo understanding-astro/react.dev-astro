@@ -1,0 +1,9 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"image" | "img">;
+
+const { props } = Astro;
+---
+
+<img class="max-w-[calc(min(700px,100%))]" {...props} />;
