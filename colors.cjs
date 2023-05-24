@@ -1,5 +1,5 @@
 /**
- * Some of these are unused, but represent the theme colors
+ * Some of these are unused, but they represent the brand theme colors
  */
 
 module.exports = {
