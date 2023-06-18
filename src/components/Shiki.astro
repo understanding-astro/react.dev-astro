@@ -2,10 +2,10 @@
 import type { Lang } from "shiki";
 import shiki, { getHighlighter } from "shiki";
 
-interface Props {
+type Props = {
   lang: Lang;
   code: string;
-}
+};
 
 const { code = "", lang = "jsx" } = Astro.props;
 

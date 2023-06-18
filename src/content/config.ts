@@ -1,7 +1,7 @@
 // Import utilities from `astro:content`
 import { z, defineCollection } from "astro:content";
 
-// define collection(s)
+// define type and schema for collection(s)
 const blogCollection = defineCollection({
   schema: z.object({
     title: z.string(),

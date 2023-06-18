@@ -1,17 +1,17 @@
 ---
-import Logo from "../components/Logo.astro";
-import NavLink from "../components/NavLink.astro";
-import Footer from "../components/Footer.astro";
+import Logo from "@components/Logo.astro";
+import Footer from "@components/Footer.astro";
+import NavLink from "@components/NavLink.astro";
 
 const NAV_LINK = ["blog", "learn"] as const;
 
 type Page = (typeof NAV_LINK)[number] | "index";
 
-interface Props {
+type Props = {
   page: Page;
   title: string;
   description?: string;
-}
+};
 
 const {
   page,

@@ -4,8 +4,8 @@ import type { HTMLAttributes } from "astro/types";
 type Heading = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 type Props = HTMLAttributes<Heading> & {
-  slot: string;
   as: Heading;
+  slot?: string;
 };
 
 const { class: classNames, ...restProps } = Astro.props;
@@ -13,7 +13,7 @@ const { class: classNames, ...restProps } = Astro.props;
 const { id, as: Comp } = restProps;
 
 const childContent = await Astro.slots.render("default");
-const label = `Label for ${childContent}`;
+const label = `Label for ${childContent || "..."}`;
 ---
 
 <Comp class:list={["mdx-heading", classNames]} {...restProps}>
