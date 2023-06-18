@@ -1,4 +1,4 @@
-# Astro Islands Showcase
+# Astro React.dev Clone
 
 > This application is part of the [Understanding Astro](https://github.com/understanding-astro/understanding-astro-book) book.
 
