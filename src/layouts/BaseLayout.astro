@@ -1,4 +1,6 @@
 ---
+import { SEO } from "astro-seo";
+
 import Logo from "@components/Logo.astro";
 import Footer from "@components/Footer.astro";
 import NavLink from "@components/NavLink.astro";
@@ -27,7 +29,34 @@ const {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <title>{title}</title>
+
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title,
+          type: "website",
+          image: "https://react.dev/images/og-home.png",
+        },
+      }}
+      twitter={{
+        creator: "@reactjs",
+      }}
+      extend={{
+        meta: [
+          {
+            name: "twitter:image",
+            content: "https://react.dev/images/og-home.png",
+          },
+          { name: "twitter:title", content: "@reactjs" },
+          {
+            name: "twitter:description",
+            content: description,
+          },
+        ],
+      }}
+    />
 
     <link
       rel="preload"
@@ -126,75 +155,74 @@ const {
 
       <Footer />
     </main>
+    <style is:global>
+      .mdx-heading {
+        scroll-margin-top: calc(4rem + 20px);
+        /* Space for the anchor */
+        padding-right: 1em;
+      }
+
+      .mdx-heading:before {
+        height: 6rem;
+        margin-top: -6rem;
+        visibility: hidden;
+        content: "";
+      }
+      .mdx-heading .mdx-header-anchor {
+        /* Prevent the anchor from
+     overflowing to its own line */
+        height: 0px;
+        width: 0px;
+      }
+      .mdx-heading .mdx-header-anchor svg {
+        display: inline;
+      }
+      .mdx-heading .mdx-header-anchor svg {
+        visibility: hidden;
+      }
+      .mdx-heading:hover .mdx-header-anchor svg {
+        visibility: visible;
+      }
+      .mdx-heading .mdx-header-anchor:focus svg {
+        visibility: visible;
+      }
+
+      .mdx-blockquote > span > p:first-of-type {
+        margin-bottom: 0;
+      }
+      .mdx-blockquote > span > p:last-of-type {
+        margin-bottom: 1rem;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --astro-code-color-text: #ffffff;
+          --astro-code-color-background: black;
+          --astro-code-token-constant: #86d9ca;
+          --astro-code-token-string: #977cdc;
+          --astro-code-token-comment: #757575;
+          --astro-code-token-keyword: #77b7d7;
+          --astro-code-token-parameter: #ffffff;
+          --astro-code-token-function: #86d9ca;
+          --astro-code-token-string-expression: #c64640;
+          --astro-code-token-punctuation: #ffffff;
+          --astro-code-token-link: #977cdc;
+        }
+      }
+
+      :root {
+        --astro-code-color-text: #24292e;
+        --astro-code-color-background: #ffffff;
+        --astro-code-token-constant: #032f62;
+        --astro-code-token-string: #032f62;
+        --astro-code-token-comment: #6a737d;
+        --astro-code-token-keyword: #d73a49;
+        --astro-code-token-parameter: #24292e;
+        --astro-code-token-function: #6f42c1;
+        --astro-code-token-string-expression: #c64640;
+        --astro-code-token-punctuation: #ffffff;
+        --astro-code-token-link: #977cdc;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  .mdx-heading {
-    scroll-margin-top: calc(4rem + 20px);
-    /* Space for the anchor */
-    padding-right: 1em;
-  }
-
-  .mdx-heading:before {
-    height: 6rem;
-    margin-top: -6rem;
-    visibility: hidden;
-    content: "";
-  }
-  .mdx-heading .mdx-header-anchor {
-    /* Prevent the anchor from
-     overflowing to its own line */
-    height: 0px;
-    width: 0px;
-  }
-  .mdx-heading .mdx-header-anchor svg {
-    display: inline;
-  }
-  .mdx-heading .mdx-header-anchor svg {
-    visibility: hidden;
-  }
-  .mdx-heading:hover .mdx-header-anchor svg {
-    visibility: visible;
-  }
-  .mdx-heading .mdx-header-anchor:focus svg {
-    visibility: visible;
-  }
-
-  .mdx-blockquote > span > p:first-of-type {
-    margin-bottom: 0;
-  }
-  .mdx-blockquote > span > p:last-of-type {
-    margin-bottom: 1rem;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --astro-code-color-text: #ffffff;
-      --astro-code-color-background: black;
-      --astro-code-token-constant: #86d9ca;
-      --astro-code-token-string: #977cdc;
-      --astro-code-token-comment: #757575;
-      --astro-code-token-keyword: #77b7d7;
-      --astro-code-token-parameter: #ffffff;
-      --astro-code-token-function: #86d9ca;
-      --astro-code-token-string-expression: #c64640;
-      --astro-code-token-punctuation: #ffffff;
-      --astro-code-token-link: #977cdc;
-    }
-  }
-
-  :root {
-    --astro-code-color-text: #24292e;
-    --astro-code-color-background: #ffffff;
-    --astro-code-token-constant: #032f62;
-    --astro-code-token-string: #032f62;
-    --astro-code-token-comment: #6a737d;
-    --astro-code-token-keyword: #d73a49;
-    --astro-code-token-parameter: #24292e;
-    --astro-code-token-function: #6f42c1;
-    --astro-code-token-string-expression: #c64640;
-    --astro-code-token-punctuation: #ffffff;
-    --astro-code-token-link: #977cdc;
-  }
-</style>
