@@ -11,7 +11,6 @@ import Code from "./_components/home/Code.astro";
 import FullBleed from "./_components/home/FullBleed.astro";
 import ExampleLayout from "./_components/home/ExampleLayout.astro";
 import ExampleResultPanel from "./_components/home/ExampleResultPanel.astro";
-import { Video } from "./_components/home/Video";
 import CommunityGallery from "./_components/home/CommunityGallery.astro";
 ---
 
@@ -66,10 +65,7 @@ import CommunityGallery from "./_components/home/CommunityGallery.astro";
         <div slot="left-content" class="min-h-[200px]"></div>
 
         <ExampleResultPanel slot="right-content">
-          <Video
-            client:visible
-            video={{ title: "My video", description: "Video description" }}
-          />
+          <!-- ❗️TODO: Render the `Video` React component in "../_components/home" -->
         </ExampleResultPanel>
       </ExampleLayout>
     </FullBleed>
@@ -104,15 +100,7 @@ import CommunityGallery from "./_components/home/CommunityGallery.astro";
             <h2 class="mb-4 text-xl font-bold leading-snug text-primary">
               2 videos
             </h2>
-
-            <Video
-              client:visible
-              video={{ title: "My video", description: "Video description" }}
-            />
-            <Video
-              client:visible
-              video={{ title: "My video", description: "Video description" }}
-            />
+            <!-- ❗️TODO: Render 2 `Video` React components -->
           </div>
         </ExampleResultPanel>
       </ExampleLayout>
