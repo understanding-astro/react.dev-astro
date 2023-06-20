@@ -1,5 +1,4 @@
 ---
-import Shiki from "@components/Shiki.astro";
 import Logo from "@components/Logo.astro";
 import ButtonLink from "@components/ButtonLink.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -63,26 +62,8 @@ import CommunityGallery from "./_components/home/CommunityGallery.astro";
 
     <FullBleed>
       <ExampleLayout>
-        <div
-          slot="left-content"
-          class="[&_pre]:!bg-transparent [&_pre]:!text-sm [&_pre]:!leading-6"
-        >
-          <Shiki
-            code={`function Video({ video }) {
-  return (
-    <div>
-      <Thumbnail video={video} />
-      <a href={video.url}>
-        <h3>{video.title}</h3>
-        <p>{video.description}</p>
-      </a>
-      <LikeButton video={video} />
-    </div>
-  );
-}`}
-            lang="jsx"
-          />
-        </div>
+        <!-- ❗️TODO: Replace the div below with Syntax highlighted code -->
+        <div slot="left-content" class="min-h-[200px]"></div>
 
         <ExampleResultPanel slot="right-content">
           <Video
@@ -115,30 +96,8 @@ import CommunityGallery from "./_components/home/CommunityGallery.astro";
 
     <FullBleed>
       <ExampleLayout>
-        <div
-          slot="left-content"
-          class="[&_pre]:!bg-transparent [&_pre]:!text-sm [&_pre]:!leading-6"
-        >
-          <Shiki
-            code={`function VideoList({ videos, emptyHeading }) {
-  const count = videos.length;
-  let heading = emptyHeading;
-  if (count > 0) {
-    const noun = count > 1 ? 'Videos' : 'Video';
-    heading = count + ' ' + noun;
-  }
-  return (
-    <section>
-      <h2>{heading}</h2>
-      {videos.map(video =>
-        <Video key={video.id} video={video} />
-      )}
-    </section>
-  );
-}`}
-            lang="jsx"
-          />
-        </div>
+        <!-- ❗️TODO: Replace the div below with Syntax highlighted code -->
+        <div slot="left-content" class="min-h-[200px]"></div>
 
         <ExampleResultPanel slot="right-content">
           <div class="flex w-full flex-col gap-4">
