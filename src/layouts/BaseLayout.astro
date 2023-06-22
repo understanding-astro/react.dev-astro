@@ -19,7 +19,7 @@ const {
   description = "The library for web and native user interfaces",
 } = Astro.props;
 
-console.log(title);
+console.log({ title, description });
 ---
 
 <html lang="en">
@@ -28,7 +28,6 @@ console.log(title);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
 
     <link
       rel="preload"
